@@ -1,0 +1,17 @@
+name = "sos-api"
+main = "src/index.ts"
+compatibility_date = "2025-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+routes = [
+  { pattern = "sos.cactus.watch", custom_domain = true }
+]
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "c3f43e6e92fd4faf9c4c333dab497556"
+
+[vars]
+USER_AGENT = "sos-mcp/0.1 (+https://github.com/az-civic-tools/sos-mcp; alex@log.vin)"
+SITE_NAME = "Arizona SOS Campaign Finance"
+CACHE_TTL_SECONDS = "1800"

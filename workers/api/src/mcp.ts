@@ -163,6 +163,7 @@ function buildServer(env: Env): McpServer {
           .enum(["Income", "Expenditures", "IndependentExpenditures", "BallotMeasures"])
           .optional(),
         cycle: z.number().int().optional(),
+        position: z.enum(["Support", "Opposition"]).optional(),
         donor_name: z.string().optional(),
         vendor_name: z.string().optional(),
         employer: z.string().optional(),
@@ -171,6 +172,7 @@ function buildServer(env: Env): McpServer {
         state: z.string().optional(),
         filer_name: z.string().optional(),
         filer_id: z.number().int().optional(),
+        filer_type_id: z.number().int().min(1).max(8).optional(),
         low_amount: z.number().int().optional(),
         high_amount: z.number().int().optional(),
         start: z.number().int().min(0).optional(),
@@ -182,6 +184,7 @@ function buildServer(env: Env): McpServer {
         ...input,
         cycle: input.cycle ?? 2026,
         category: input.category ?? "Income",
+        position: input.position ?? "Support",
         length: input.length ?? 50,
       });
       if (data.rows.length === 0) {
